@@ -25,9 +25,9 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="container">
       <header><h1>COVID-19</h1></header>
-      <h1>World Stats</h1>
+      <h2>World Stats</h2>
       <Stats
         confirmed={worldStats && worldStats.confirmed && worldStats.confirmed.value}
         recovered={worldStats && worldStats.recovered && worldStats.recovered.value}
@@ -46,6 +46,9 @@ function App() {
         deaths={selectedCountryStats && selectedCountryStats.deaths}
         lastUpdate={selectedCountryStats && selectedCountryStats.lastUpdate}
       />
+      <footer className="small text-center mb-4">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/mathdroid/covid-19-api">COVID-19 API</a>
+      </footer>
     </div>
   );
 }

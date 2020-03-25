@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import './Stats.css';
 import Card from '../Card';
 import { getNumberString, getPercentageString } from '../../utils/strings';
 
@@ -18,12 +17,18 @@ const Stats = ({
 
   return (
     <div className="world-stats">
-      <div className="cards">
-        <Card title="Confirmed" number={confirmedString} />
-        <Card title="Recovered" number={recoveredString} percentage={recoveredPercentageString} />
-        <Card title="Deaths" number={deathsString} percentage={deathsPercentageString} />
+      <div className="row">
+        <div className="col-sm-12 col-md-4">
+          <Card title="Confirmed" number={confirmedString} />
+        </div>
+        <div className="col-sm-12 col-md-4">
+          <Card title="Recovered" number={recoveredString} percentage={recoveredPercentageString} />
+        </div>
+        <div className="col-sm-12 col-md-4">
+          <Card title="Deaths" number={deathsString} percentage={deathsPercentageString} />
+        </div>
       </div>
-      <p>{`Last update: ${lastUpdateString}`}</p>
+      <p className="text-muted">{`Last update: ${lastUpdateString}`}</p>
     </div>
   );
 };

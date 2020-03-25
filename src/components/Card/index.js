@@ -5,11 +5,15 @@ import './Card.css';
 
 const Card = ({ title, number, percentage }) => (
   <div className="card">
-    <h1>{title}</h1>
-    <p>
-      {number}
-      {percentage && <span>{percentage}</span>}
-    </p>
+    <div className="card-body">
+      <h4 className="card-title m-0 text-primary">
+        {number}
+        {percentage && <small className="text-muted ml-1">{percentage}</small>}
+      </h4>
+      <p className="m-0">
+        {title}
+      </p>
+    </div>
   </div>
 );
 

@@ -7,14 +7,18 @@ const Country = ({ countries, selected, onChange }) => {
   };
 
   return (
-    <select value={selected} onChange={handleChange}>
-      <option>{}</option>
-      {
-        countries.map((country) => (
-          <option key={country.iso2} value={country.iso2}>{country.name}</option>
-        ))
-      }
-    </select>
+    <div className="country row mb-4">
+      <div className="col-12">
+        <select value={selected} onChange={handleChange} className="form-control">
+          <option>{}</option>
+          {
+            countries.map((country) => (
+              <option key={country.iso2} value={country.iso2}>{country.name}</option>
+            ))
+          }
+        </select>
+      </div>
+    </div>
   );
 };
 
