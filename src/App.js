@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getWorldStats } from './redux/stats/actions';
+import { getWorldStats, getCountriesStats } from './redux/stats/actions';
 import { getCountries, selectCountry } from './redux/countries/actions';
 import Stats from './components/Stats';
 import Country from './components/Country';
@@ -9,28 +9,37 @@ import Country from './components/Country';
 function App() {
   const dispatch = useDispatch();
   const worldStats = useSelector((state) => state.stats.world);
+  const countriesStats = useSelector((state) => state.stats.countries);
   const countries = useSelector((state) => state.countries.list);
-  const selected = useSelector((state) => state.countries.selected);
-  const { confirmed, recovered, deaths } = worldStats;
+  const selectedCountry = useSelector((state) => state.countries.selected);
+  const selectedCountryStats = countriesStats.find((country) => country.iso2 === selectedCountry);
 
   useEffect(() => {
     dispatch(getCountries());
     dispatch(getWorldStats());
+    dispatch(getCountriesStats());
   }, []);
 
   return (
     <div className="App">
       <header><h1>COVID-19</h1></header>
+      <h1>World Stats</h1>
       <Stats
-        confirmed={confirmed && confirmed.value}
-        recovered={recovered && recovered.value}
-        deaths={deaths && deaths.value}
+        confirmed={worldStats && worldStats.confirmed && worldStats.confirmed.value}
+        recovered={worldStats && worldStats.recovered && worldStats.recovered.value}
+        deaths={worldStats && worldStats.deaths && worldStats.deaths.value}
         lastUpdate={worldStats && worldStats.lastUpdate}
       />
       <Country
         countries={countries}
-        selected={selected}
+        selected={selectedCountry}
         onChange={(country) => dispatch(selectCountry(country))}
+      />
+      <Stats
+        confirmed={selectedCountryStats && selectedCountryStats.confirmed}
+        recovered={selectedCountryStats && selectedCountryStats.recovered}
+        deaths={selectedCountryStats && selectedCountryStats.deaths}
+        lastUpdate={selectedCountryStats && selectedCountryStats.lastUpdate}
       />
     </div>
   );
