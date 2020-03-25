@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './Card.css';
+import { formatNumber } from '../../utils/numbers';
 
 const Card = ({ title, number, percentage }) => (
   <div className="card">
     <div className="card-body">
       <h4 className="card-title m-0 text-primary">
-        {number}
+        {formatNumber(number)}
         {percentage && <small className="text-muted ml-1">{percentage}</small>}
       </h4>
       <p className="m-0">
