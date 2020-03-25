@@ -4,11 +4,13 @@ import {
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
+import countriesReducer from '../redux/countries/reducer';
 import statsReducer from '../redux/stats/reducer';
 
 const DEBUG = (process.env.NODE_ENV === 'development');
 
 const createRootReducer = () => combineReducers({
+  countries: countriesReducer,
   stats: statsReducer,
 });
 

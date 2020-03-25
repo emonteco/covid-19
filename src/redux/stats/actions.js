@@ -3,8 +3,7 @@ import {
   GET_WORLD_STATS_SUCCESS,
   GET_WORLD_STATS_FAILURE,
 } from './types';
-
-const API = 'https://covid19.mathdro.id/api';
+import { API } from '../../constants';
 
 export function getWorldStatsRequest() {
   return {

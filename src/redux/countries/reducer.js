@@ -1,33 +1,32 @@
 import {
-  GET_WORLD_STATS_REQUEST,
-  GET_WORLD_STATS_SUCCESS,
-  GET_WORLD_STATS_FAILURE,
+  GET_COUNTRIES_REQUEST,
+  GET_COUNTRIES_SUCCESS,
+  GET_COUNTRIES_FAILURE,
 } from './types';
 
 const initialState = {
   loading: false,
-  world: {},
-  countries: [],
+  list: [],
 };
 
 export default function profile(state = initialState, action) {
   switch (action.type) {
-    case GET_WORLD_STATS_REQUEST: {
+    case GET_COUNTRIES_REQUEST: {
       return {
         ...state,
         loading: true,
       };
     }
 
-    case GET_WORLD_STATS_SUCCESS: {
+    case GET_COUNTRIES_SUCCESS: {
       return {
         ...state,
         loading: false,
-        world: action.data,
+        list: action.data,
       };
     }
 
-    case GET_WORLD_STATS_FAILURE: {
+    case GET_COUNTRIES_FAILURE: {
       return {
         ...state,
         loading: false,

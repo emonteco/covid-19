@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getWorldStats } from './redux/stats/actions';
+import { getCountries } from './redux/countries/actions';
 import Stats from './components/Stats';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   const { confirmed, recovered, deaths } = worldStats;
 
   useEffect(() => {
+    dispatch(getCountries());
     dispatch(getWorldStats());
   }, []);
 
