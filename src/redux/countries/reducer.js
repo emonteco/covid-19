@@ -2,11 +2,13 @@ import {
   GET_COUNTRIES_REQUEST,
   GET_COUNTRIES_SUCCESS,
   GET_COUNTRIES_FAILURE,
+  SELECT_COUNTRY,
 } from './types';
 
 const initialState = {
   loading: false,
   list: [],
+  selected: null,
 };
 
 export default function profile(state = initialState, action) {
@@ -31,6 +33,13 @@ export default function profile(state = initialState, action) {
         ...state,
         loading: false,
         error: action.error,
+      };
+    }
+
+    case SELECT_COUNTRY: {
+      return {
+        ...state,
+        selected: action.country,
       };
     }
 

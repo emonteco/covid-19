@@ -10,12 +10,14 @@ export function getWorldStatsRequest() {
     type: GET_WORLD_STATS_REQUEST,
   };
 }
+
 export function getWorldStatsSuccess(data) {
   return {
     type: GET_WORLD_STATS_SUCCESS,
     data,
   };
 }
+
 export function getWorldStatsFailure(error) {
   return {
     type: GET_WORLD_STATS_FAILURE,
