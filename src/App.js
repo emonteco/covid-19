@@ -5,6 +5,7 @@ import { getWorldStats, getCountriesStats } from './redux/stats/actions';
 import { getCountries, selectCountry } from './redux/countries/actions';
 import Stats from './components/Stats';
 import Country from './components/Country';
+import WorldMap from './components/WorldMap';
 
 function App() {
   const dispatch = useDispatch();
@@ -13,6 +14,9 @@ function App() {
   const countries = useSelector((state) => state.countries.list);
   const selectedCountry = useSelector((state) => state.countries.selected);
   const selectedCountryStats = countriesStats.find((country) => country.iso2 === selectedCountry);
+  const handleChangeCountry = (country) => {
+    dispatch(selectCountry(country));
+  };
 
   useEffect(() => {
     dispatch(getCountries());
@@ -30,10 +34,11 @@ function App() {
         deaths={worldStats && worldStats.deaths && worldStats.deaths.value}
         lastUpdate={worldStats && worldStats.lastUpdate}
       />
+      <WorldMap onClick={handleChangeCountry} selected={selectedCountry} />
       <Country
         countries={countries}
         selected={selectedCountry}
-        onChange={(country) => dispatch(selectCountry(country))}
+        onChange={handleChangeCountry}
       />
       <Stats
         confirmed={selectedCountryStats && selectedCountryStats.confirmed}

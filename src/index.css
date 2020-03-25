@@ -1,0 +1,18 @@
+svg {
+  stroke: #fff;
+}
+
+svg path {
+  fill: #333;
+  cursor: pointer;
+  outline: none;
+}
+
+svg path:hover {
+  opacity: 0.8;
+}
+
+svg path:focus, svg path[aria-current="true"] {
+  opacity: 0.4;
+}
+
