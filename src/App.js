@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="container">
       <header><h1>COVID-19</h1></header>
-      <h2>World Stats</h2>
+      <h2 className="h4">World Stats</h2>
       <Stats
         confirmed={worldStats && worldStats.confirmed && worldStats.confirmed.value}
         recovered={worldStats && worldStats.recovered && worldStats.recovered.value}
