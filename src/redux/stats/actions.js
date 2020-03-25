@@ -2,6 +2,9 @@ import {
   GET_WORLD_STATS_REQUEST,
   GET_WORLD_STATS_SUCCESS,
   GET_WORLD_STATS_FAILURE,
+  GET_COUNTRIES_STATS_REQUEST,
+  GET_COUNTRIES_STATS_SUCCESS,
+  GET_COUNTRIES_STATS_FAILURE,
 } from './types';
 import { API } from '../../constants';
 
@@ -25,6 +28,26 @@ export function getWorldStatsFailure(error) {
   };
 }
 
+export function getCountriesStatsRequest() {
+  return {
+    type: GET_COUNTRIES_STATS_REQUEST,
+  };
+}
+
+export function getCountriesStatsSuccess(data) {
+  return {
+    type: GET_COUNTRIES_STATS_SUCCESS,
+    data,
+  };
+}
+
+export function getCountriesStatsFailure(error) {
+  return {
+    type: GET_COUNTRIES_STATS_FAILURE,
+    error,
+  };
+}
+
 export function getWorldStats() {
   return async (dispatch) => {
     dispatch(getWorldStatsRequest());
@@ -38,6 +61,23 @@ export function getWorldStats() {
       }
     } catch (error) {
       dispatch(getWorldStatsFailure(error));
+    }
+  };
+}
+
+export function getCountriesStats() {
+  return async (dispatch) => {
+    dispatch(getCountriesStatsRequest());
+    try {
+      const response = await fetch(`${API}/confirmed`);
+      if (response.status >= 300) {
+        throw response.status;
+      } else {
+        const data = await response.json();
+        dispatch(getCountriesStatsSuccess(data));
+      }
+    } catch (error) {
+      dispatch(getCountriesStatsFailure(error));
     }
   };
 }
