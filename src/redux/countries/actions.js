@@ -42,11 +42,7 @@ export function getCountries() {
         throw response.status;
       } else {
         const data = await response.json();
-        const countries = [
-          {},
-          ...data.countries,
-        ];
-        dispatch(getCountriesSuccess(countries));
+        dispatch(getCountriesSuccess(data && data.countries));
       }
     } catch (error) {
       dispatch(getCountriesFailure(error));
