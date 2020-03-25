@@ -4,12 +4,12 @@ import {
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
-// import boxReducer from '../redux/box/box.reducer';
+import statsReducer from '../redux/stats/reducer';
 
 const DEBUG = (process.env.NODE_ENV === 'development');
 
 const createRootReducer = () => combineReducers({
-  // box: boxReducer,
+  stats: statsReducer,
 });
 
 const middlewares = [thunk];
