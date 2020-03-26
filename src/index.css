@@ -1,5 +1,8 @@
 :root {
-  --primary-color: #4dbd74;
+  --primary-color: #20a8d8;
+  --warning-color: #ffc107;
+  --success-color: #4dbd74;
+  --danger-color: #f86c6b;
 }
 
 body {
@@ -30,4 +33,16 @@ svg path:focus, svg path[aria-current="true"] {
 
 .text-primary {
   color: var(--primary-color)!important;
+}
+
+.text-warning {
+  color: var(--warning-color)!important;
+}
+
+.text-success {
+  color: var(--success-color)!important;
+}
+
+.text-danger {
+  color: var(--danger-color)!important;
 }
