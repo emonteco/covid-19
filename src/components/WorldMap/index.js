@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { VectorMap } from '@south-paw/react-vector-maps';
 
 import world from '../../maps/world.json';
+import './WorldMap.css';
 
 const WorldMap = ({ onClick, selected }) => {
   const currentLayers = [selected && selected.toLowerCase()];
@@ -11,12 +12,14 @@ const WorldMap = ({ onClick, selected }) => {
   };
 
   return (
-    <VectorMap
-      {...world}
-      layerProps={layerProps}
-      currentLayers={currentLayers}
-      tabIndex={-1}
-    />
+    <div className="world-map">
+      <VectorMap
+        {...world}
+        layerProps={layerProps}
+        currentLayers={currentLayers}
+        tabIndex={-1}
+      />
+    </div>
   );
 };
 

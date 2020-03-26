@@ -11,7 +11,7 @@ const initialState = {
   selected: null,
 };
 
-export default function profile(state = initialState, action) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_COUNTRIES_REQUEST: {
       return {

@@ -14,7 +14,7 @@ const initialState = {
   countries: [],
 };
 
-export default function profile(state = initialState, action) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_WORLD_STATS_REQUEST: {
       return {

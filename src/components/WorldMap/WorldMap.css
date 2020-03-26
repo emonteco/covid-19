@@ -1,0 +1,25 @@
+.theme .world-map svg {
+  stroke: var(--gray-100-color);
+}
+
+.theme.dark .world-map svg {
+  stroke: var(--gray-700-color);
+}
+
+.theme .world-map svg path {
+  fill: var(--gray-800-color);
+  cursor: pointer;
+  outline: none;
+}
+
+.theme.dark .world-map svg path {
+  fill: var(--gray-100-color);;
+}
+
+.theme .world-map svg path:hover {
+  opacity: 0.8;
+}
+
+.theme .world-map svg path:focus, .theme .world-map svg path[aria-current="true"], .theme.dark .world-map svg path:focus, .theme.dark .world-map svg path[aria-current="true"] {
+  fill: var(--primary-color);
+}

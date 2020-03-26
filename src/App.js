@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { getWorldStats, getCountriesStats } from './redux/stats/actions';
 import { getCountries } from './redux/countries/actions';
+import Theme from './components/Theme';
 import Header from './components/Header';
 import WorldStats from './components/WorldStats';
 import CountryStats from './components/CountryStats';
@@ -18,12 +19,12 @@ function App() {
   }, []);
 
   return (
-    <>
+    <Theme>
       <Header />
       <WorldStats />
       <CountryStats />
       <Footer />
-    </>
+    </Theme>
   );
 }
 

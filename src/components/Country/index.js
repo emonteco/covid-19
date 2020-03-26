@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Country.css';
+
 const Country = ({ countries, selected, onChange }) => {
   const handleChange = (event) => {
     onChange(event.target.value);

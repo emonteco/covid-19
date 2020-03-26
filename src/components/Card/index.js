@@ -27,7 +27,7 @@ Card.propTypes = {
     PropTypes.number,
   ]).isRequired,
   percentage: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 
 Card.defaultProps = {

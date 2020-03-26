@@ -6,12 +6,14 @@ import thunk from 'redux-thunk';
 
 import countriesReducer from '../redux/countries/reducer';
 import statsReducer from '../redux/stats/reducer';
+import themeReducer from '../redux/theme/reducer';
 
 const DEBUG = (process.env.NODE_ENV === 'development');
 
 const createRootReducer = () => combineReducers({
   countries: countriesReducer,
   stats: statsReducer,
+  theme: themeReducer,
 });
 
 const middlewares = [thunk];
