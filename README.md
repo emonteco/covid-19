@@ -1,7 +1,7 @@
 # COVID-19
 Statistics by country.
 
-[Demo] (https://emonteco.github.io/covid-19/) 
+[Demo](https://emonteco.github.io/covid-19/) 
 
 ## Stack
 - React
