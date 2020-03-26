@@ -1,0 +1,70 @@
+:root {
+  --white-color: #fff;
+  --primary-color: #20a8d8;
+  --warning-color: #ffc107;
+  --success-color: #4dbd74;
+  --danger-color: #f86c6b;
+  --gray-100-color: #f0f3f5;
+  --gray-200-color: #e4e7ea;
+  --gray-300-color: #c8ced3;
+  --gray-400-color: #acb4bc;
+  --gray-700-color: #5c6873;
+  --gray-800-color: #2f353a;
+  --gray-900-color: #23282c;
+}
+
+[data-theme="light"] {
+  --bg-color: var(--gray-200-color);
+  --text-color: var(--gray-900-color);
+  --text-muted-color: var(--gray-700-color);
+  --button-bg-color: var(--gray-800-color);
+  --button-border-color: var(--gray-400-color);
+  --button-icon-color: var(--white-color);
+  --card-bg-color: var(--white-color);
+  --card-border-color: var(--gray-300-color);
+  --map-color: var(--gray-800-color);
+  --map-border-color: var(--gray-100-color);
+}
+
+[data-theme="dark"] {
+  --bg-color: var(--gray-800-color);
+  --text-color: var(--white-color);
+  --text-muted-color: var(--gray-300-color);
+  --button-bg-color: var(--white-color);
+  --button-border-color: var(--gray-300-color);
+  --button-icon-color: var(--gray-800-color);
+  --card-bg-color: var(--gray-700-color);
+  --card-border-color: var(--gray-400-color);
+  --map-color: var(--gray-100-color);
+  --map-border-color: var(--gray-700-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  transition: background-color 300ms;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+.text-primary {
+  color: var(--primary-color)!important;
+}
+
+.text-warning {
+  color: var(--warning-color)!important;
+}
+
+.text-success {
+  color: var(--success-color)!important;
+}
+
+.text-danger {
+  color: var(--danger-color)!important;
+}
+
+.text-muted {
+  color: var(--text-muted-color)!important;
+}

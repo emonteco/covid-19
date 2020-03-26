@@ -1,28 +1,22 @@
-.theme .theme-button {
+.theme-button {
   width: 40px;
   height: 40px;
-  border-color: var(--gray-400-color);
-  background-color: var(--gray-800-color);
-  outline: none;
+  border-color: var(--button-border-color);
+  background-color: var(--button-bg-color);
 }
 
-.theme.dark .theme-button {
-  border-color: var(--gray-300-color);
-  background-color: var(--white-color);
-}
-
-.theme .theme-button:hover {
+.theme-button:hover {
   opacity: 0.8;
 }
 
-.theme .theme-button svg {
+.theme-button:focus {
+  outline: none;
+}
+
+.theme-button svg {
   width: 20px;
 }
 
-.theme .theme-button svg path {
-  fill: var(--white-color);
-}
-
-.theme.dark .theme-button svg path {
-  fill: var(--gray-800-color);
+.theme-button svg path {
+  fill: var(--button-icon-color);
 }

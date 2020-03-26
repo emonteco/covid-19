@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { getWorldStats, getCountriesStats } from './redux/stats/actions';
 import { getCountries } from './redux/countries/actions';
-import Theme from './components/Theme';
 import Header from './components/Header';
 import WorldStats from './components/WorldStats';
 import CountryStats from './components/CountryStats';
@@ -11,6 +10,8 @@ import Footer from './components/Footer';
 
 function App() {
   const dispatch = useDispatch();
+  const darkTheme = useSelector((state) => state.theme.darkTheme);
+  const theme = darkTheme ? 'dark' : 'light';
 
   useEffect(() => {
     dispatch(getCountries());
@@ -18,13 +19,19 @@ function App() {
     dispatch(getCountriesStats());
   }, []);
 
+  useEffect(() => {
+    document
+      .getElementsByTagName('body')[0]
+      .setAttribute('data-theme', theme);
+  }, [darkTheme]);
+
   return (
-    <Theme>
+    <>
       <Header />
       <WorldStats />
       <CountryStats />
       <Footer />
-    </Theme>
+    </>
   );
 }
 
