@@ -2,9 +2,9 @@ import {
   GET_WORLD_STATS_REQUEST,
   GET_WORLD_STATS_SUCCESS,
   GET_WORLD_STATS_FAILURE,
-  GET_COUNTRIES_STATS_REQUEST,
-  GET_COUNTRIES_STATS_SUCCESS,
-  GET_COUNTRIES_STATS_FAILURE,
+  GET_COUNTRY_STATS_REQUEST,
+  GET_COUNTRY_STATS_SUCCESS,
+  GET_COUNTRY_STATS_FAILURE,
 } from './types';
 import { API } from '../../constants';
 
@@ -28,22 +28,22 @@ export function getWorldStatsFailure(error) {
   };
 }
 
-export function getCountriesStatsRequest() {
+export function getCountryStatsRequest() {
   return {
-    type: GET_COUNTRIES_STATS_REQUEST,
+    type: GET_COUNTRY_STATS_REQUEST,
   };
 }
 
-export function getCountriesStatsSuccess(data) {
+export function getCountryStatsSuccess(data) {
   return {
-    type: GET_COUNTRIES_STATS_SUCCESS,
+    type: GET_COUNTRY_STATS_SUCCESS,
     data,
   };
 }
 
-export function getCountriesStatsFailure(error) {
+export function getCountryStatsFailure(error) {
   return {
-    type: GET_COUNTRIES_STATS_FAILURE,
+    type: GET_COUNTRY_STATS_FAILURE,
     error,
   };
 }
@@ -65,19 +65,19 @@ export function getWorldStats() {
   };
 }
 
-export function getCountriesStats() {
+export function getCountryStats(country) {
   return async (dispatch) => {
-    dispatch(getCountriesStatsRequest());
+    dispatch(getCountryStatsRequest());
     try {
-      const response = await fetch(`${API}/confirmed`);
+      const response = await fetch(`${API}/countries/${country}`);
       if (response.status >= 300) {
         throw response.status;
       } else {
         const data = await response.json();
-        dispatch(getCountriesStatsSuccess(data));
+        dispatch(getCountryStatsSuccess(data));
       }
     } catch (error) {
-      dispatch(getCountriesStatsFailure(error));
+      dispatch(getCountryStatsFailure(error));
     }
   };
 }

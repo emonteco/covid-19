@@ -2,19 +2,20 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectCountry } from '../../redux/countries/actions';
+import { getCountryStats } from '../../redux/stats/actions';
 import Stats from '../Stats';
 import Country from '../Country';
 import WorldMap from '../WorldMap';
 
 const CountryStats = () => {
   const dispatch = useDispatch();
-  const countriesStats = useSelector((state) => state.stats.countries);
   const countries = useSelector((state) => state.countries.list);
   const selectedCountry = useSelector((state) => state.countries.selected);
-  const selectedCountryStats = countriesStats.find((country) => country.iso2 === selectedCountry);
+  const countryStats = useSelector((state) => state.stats.country);
 
   const handleChangeCountry = (country) => {
     dispatch(selectCountry(country));
+    dispatch(getCountryStats(country));
   };
 
   return (
@@ -31,10 +32,10 @@ const CountryStats = () => {
             onChange={handleChangeCountry}
           />
           <Stats
-            confirmed={selectedCountryStats && selectedCountryStats.confirmed}
-            recovered={selectedCountryStats && selectedCountryStats.recovered}
-            deaths={selectedCountryStats && selectedCountryStats.deaths}
-            lastUpdate={selectedCountryStats && selectedCountryStats.lastUpdate}
+            confirmed={countryStats && countryStats.confirmed && countryStats.confirmed.value}
+            recovered={countryStats && countryStats.recovered && countryStats.recovered.value}
+            deaths={countryStats && countryStats.deaths && countryStats.deaths.value}
+            lastUpdate={countryStats && countryStats.lastUpdate}
             verticalLayout
           />
         </div>

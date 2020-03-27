@@ -2,16 +2,16 @@ import {
   GET_WORLD_STATS_REQUEST,
   GET_WORLD_STATS_SUCCESS,
   GET_WORLD_STATS_FAILURE,
-  GET_COUNTRIES_STATS_REQUEST,
-  GET_COUNTRIES_STATS_SUCCESS,
-  GET_COUNTRIES_STATS_FAILURE,
+  GET_COUNTRY_STATS_REQUEST,
+  GET_COUNTRY_STATS_SUCCESS,
+  GET_COUNTRY_STATS_FAILURE,
 } from './types';
 
 const initialState = {
   loadingWorldStats: false,
-  loadingCountriesStats: false,
+  loadingCountryStats: false,
   world: {},
-  countries: [],
+  country: {},
 };
 
 export default function reducer(state = initialState, action) {
@@ -39,25 +39,26 @@ export default function reducer(state = initialState, action) {
       };
     }
 
-    case GET_COUNTRIES_STATS_REQUEST: {
+    case GET_COUNTRY_STATS_REQUEST: {
       return {
         ...state,
-        loadingCountriesStats: true,
+        country: {},
+        loadingCountryStats: true,
       };
     }
 
-    case GET_COUNTRIES_STATS_SUCCESS: {
+    case GET_COUNTRY_STATS_SUCCESS: {
       return {
         ...state,
-        loadingCountriesStats: false,
-        countries: action.data,
+        loadingCountryStats: false,
+        country: action.data,
       };
     }
 
-    case GET_COUNTRIES_STATS_FAILURE: {
+    case GET_COUNTRY_STATS_FAILURE: {
       return {
         ...state,
-        loadingCountriesStats: false,
+        loadingCountryStats: false,
         error: action.error,
       };
     }
