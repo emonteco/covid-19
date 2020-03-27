@@ -5,6 +5,7 @@ import Stats from '../Stats';
 
 const WorldStats = () => {
   const worldStats = useSelector((state) => state.stats.world);
+  const loadingWorldStats = useSelector((state) => state.stats.loadingWorldStats);
 
   return (
     <div className="world-stats container mt-4">
@@ -14,6 +15,7 @@ const WorldStats = () => {
         recovered={worldStats && worldStats.recovered && worldStats.recovered.value}
         deaths={worldStats && worldStats.deaths && worldStats.deaths.value}
         lastUpdate={worldStats && worldStats.lastUpdate}
+        loading={loadingWorldStats}
       />
     </div>
   );

@@ -6,7 +6,7 @@ import Card from '../Card';
 import { getNumberString, getPercentageString } from '../../utils/strings';
 
 const Stats = ({
-  confirmed, recovered, deaths, lastUpdate, verticalLayout,
+  confirmed, recovered, deaths, lastUpdate, verticalLayout, loading,
 }) => {
   const lastUpdateString = (lastUpdate && moment(lastUpdate).fromNow()) || '-';
   const confirmedString = getNumberString(confirmed);
@@ -24,6 +24,7 @@ const Stats = ({
             title="Confirmed"
             number={confirmedString}
             color="warning"
+            loading={loading}
           />
         </div>
         <div className={cssClass}>
@@ -32,6 +33,7 @@ const Stats = ({
             number={recoveredString}
             percentage={recoveredPercentageString}
             color="success"
+            loading={loading}
           />
         </div>
         <div className={cssClass}>
@@ -40,6 +42,7 @@ const Stats = ({
             number={deathsString}
             percentage={deathsPercentageString}
             color="danger"
+            loading={loading}
           />
         </div>
       </div>
@@ -57,6 +60,7 @@ Stats.propTypes = {
     PropTypes.number,
   ]),
   verticalLayout: PropTypes.bool,
+  loading: PropTypes.bool.isRequired,
 };
 
 Stats.defaultProps = {

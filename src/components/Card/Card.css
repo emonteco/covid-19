@@ -2,3 +2,8 @@
   background-color: var(--card-bg-color);
   border: 1px solid var(--card-border-color);
 }
+
+.card .spinner-border {
+  width: 30px;
+  height: 30px;
+}

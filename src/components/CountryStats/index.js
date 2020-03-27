@@ -12,6 +12,7 @@ const CountryStats = () => {
   const countries = useSelector((state) => state.countries.list);
   const selectedCountry = useSelector((state) => state.countries.selected);
   const countryStats = useSelector((state) => state.stats.country);
+  const loadingCountryStats = useSelector((state) => state.stats.loadingCountryStats);
 
   const handleChangeCountry = (country) => {
     dispatch(selectCountry(country));
@@ -37,6 +38,7 @@ const CountryStats = () => {
             deaths={countryStats && countryStats.deaths && countryStats.deaths.value}
             lastUpdate={countryStats && countryStats.lastUpdate}
             verticalLayout
+            loading={loadingCountryStats}
           />
         </div>
       </div>

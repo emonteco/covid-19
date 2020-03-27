@@ -5,14 +5,20 @@ import './Card.css';
 import { formatNumber } from '../../utils/numbers';
 
 const Card = ({
-  title, number, percentage, color,
+  title, number, percentage, color, loading,
 }) => (
   <div className="card">
     <div className="card-body">
-      <h3 className={`m-0 text-${color}`}>
-        {formatNumber(number)}
-        {percentage && <small className="text-muted ml-1">{percentage}</small>}
-      </h3>
+      {
+        loading
+          ? <div className="spinner-border text-primary" role="status" />
+          : (
+            <h3 className={`m-0 text-${color}`}>
+              {formatNumber(number)}
+              {percentage && <small className="text-muted ml-1">{percentage}</small>}
+            </h3>
+          )
+        }
       <p className="m-0">
         {title}
       </p>
@@ -28,6 +34,7 @@ Card.propTypes = {
   ]).isRequired,
   percentage: PropTypes.string,
   color: PropTypes.string,
+  loading: PropTypes.bool.isRequired,
 };
 
 Card.defaultProps = {
