@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectCountry } from '../../redux/countries/actions';
-import { getCountryStats } from '../../redux/stats/actions';
+import { getCountryStatsRequest } from '../../redux/stats/actions';
 import Stats from '../Stats';
 import Country from '../Country';
 import WorldMap from '../WorldMap';
@@ -16,7 +16,7 @@ const CountryStats = () => {
 
   const handleChangeCountry = (country) => {
     dispatch(selectCountry(country));
-    dispatch(getCountryStats(country));
+    dispatch(getCountryStatsRequest(country));
   };
 
   return (

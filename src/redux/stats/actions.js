@@ -6,7 +6,6 @@ import {
   GET_COUNTRY_STATS_SUCCESS,
   GET_COUNTRY_STATS_FAILURE,
 } from './types';
-import { API } from '../../constants';
 
 export function getWorldStatsRequest() {
   return {
@@ -28,9 +27,10 @@ export function getWorldStatsFailure(error) {
   };
 }
 
-export function getCountryStatsRequest() {
+export function getCountryStatsRequest(country) {
   return {
     type: GET_COUNTRY_STATS_REQUEST,
+    country,
   };
 }
 
@@ -45,39 +45,5 @@ export function getCountryStatsFailure(error) {
   return {
     type: GET_COUNTRY_STATS_FAILURE,
     error,
-  };
-}
-
-export function getWorldStats() {
-  return async (dispatch) => {
-    dispatch(getWorldStatsRequest());
-    try {
-      const response = await fetch(API);
-      if (response.status >= 300) {
-        throw response.status;
-      } else {
-        const data = await response.json();
-        dispatch(getWorldStatsSuccess(data));
-      }
-    } catch (error) {
-      dispatch(getWorldStatsFailure(error));
-    }
-  };
-}
-
-export function getCountryStats(country) {
-  return async (dispatch) => {
-    dispatch(getCountryStatsRequest());
-    try {
-      const response = await fetch(`${API}/countries/${country}`);
-      if (response.status >= 300) {
-        throw response.status;
-      } else {
-        const data = await response.json();
-        dispatch(getCountryStatsSuccess(data));
-      }
-    } catch (error) {
-      dispatch(getCountryStatsFailure(error));
-    }
   };
 }

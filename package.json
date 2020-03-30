@@ -2,7 +2,7 @@
   "name": "covid-19",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://emonteco.github.io/covid-19",
+  "homepage": "https://emonteco.github.io/covid-19",
   "dependencies": {
     "@south-paw/react-vector-maps": "^3.0.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -17,6 +17,7 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
+    "redux-saga": "^1.1.3",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {

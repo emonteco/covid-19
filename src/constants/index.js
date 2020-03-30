@@ -1,1 +1,1 @@
-export const API = 'https://covid19.mathdro.id/api';
+export const API = 'https://covid19.mathdro.id/api/';

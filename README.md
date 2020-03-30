@@ -6,4 +6,5 @@ Statistics by country.
 ## Stack
 - React
 - Redux
+- Redux-Saga
 - Bootstrap

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getWorldStats } from './redux/stats/actions';
-import { getCountries } from './redux/countries/actions';
+import { getWorldStatsRequest } from './redux/stats/actions';
+import { getCountriesRequest } from './redux/countries/actions';
 import Header from './components/Header';
 import WorldStats from './components/WorldStats';
 import CountryStats from './components/CountryStats';
@@ -14,8 +14,8 @@ function App() {
   const theme = darkTheme ? 'dark' : 'light';
 
   useEffect(() => {
-    dispatch(getCountries());
-    dispatch(getWorldStats());
+    dispatch(getCountriesRequest());
+    dispatch(getWorldStatsRequest());
   }, []);
 
   useEffect(() => {

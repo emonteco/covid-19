@@ -4,7 +4,6 @@ import {
   GET_COUNTRIES_FAILURE,
   SELECT_COUNTRY,
 } from './types';
-import { API } from '../../constants';
 
 export function getCountriesRequest() {
   return {
@@ -30,22 +29,5 @@ export function selectCountry(country) {
   return {
     type: SELECT_COUNTRY,
     country,
-  };
-}
-
-export function getCountries() {
-  return async (dispatch) => {
-    dispatch(getCountriesRequest());
-    try {
-      const response = await fetch(`${API}/countries`);
-      if (response.status >= 300) {
-        throw response.status;
-      } else {
-        const data = await response.json();
-        dispatch(getCountriesSuccess(data && data.countries));
-      }
-    } catch (error) {
-      dispatch(getCountriesFailure(error));
-    }
   };
 }
