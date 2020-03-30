@@ -1,22 +1,14 @@
 import {
-  applyMiddleware, compose, createStore, combineReducers,
+  applyMiddleware, compose, createStore,
 } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 
-import countriesReducer from '../redux/countries/reducer';
-import statsReducer from '../redux/stats/reducer';
-import themeReducer from '../redux/theme/reducer';
-import appSaga from '../redux/sagas';
+import rootReducer from '../redux/rootReducer';
+import rootSaga from '../redux/rootSaga';
 
 const DEBUG = (process.env.NODE_ENV === 'development');
-
-const createRootReducer = () => combineReducers({
-  countries: countriesReducer,
-  stats: statsReducer,
-  theme: themeReducer,
-});
 
 const sagaMiddleware = createSagaMiddleware();
 const middlewares = [thunk, sagaMiddleware];
@@ -28,7 +20,7 @@ if (DEBUG) {
 
 export default function configureStore(preloadedState) {
   const store = createStore(
-    createRootReducer(),
+    rootReducer(),
     preloadedState,
     compose(
       applyMiddleware(...middlewares),
@@ -37,6 +29,6 @@ export default function configureStore(preloadedState) {
         : (f) => f,
     ),
   );
-  sagaMiddleware.run(appSaga);
+  sagaMiddleware.run(rootSaga);
   return store;
 }
