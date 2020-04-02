@@ -13,7 +13,7 @@ const ThemeButton = ({ darkTheme, onClick }) => (
     onClick={onClick}
   >
     {
-      darkTheme ? <DayIcon /> : <NightIcon />
+      darkTheme ? <DayIcon id="light-mode" /> : <NightIcon id="dark-mode" />
     }
   </button>
 );
