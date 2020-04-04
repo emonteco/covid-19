@@ -1,0 +1,19 @@
+.world-map {
+  svg {
+    stroke: var(--map-border-color);
+
+    path {
+      fill: var(--map-color);
+      cursor: pointer;
+      outline: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:focus, &[aria-current="true"] {
+        fill: var(--primary-color);
+      }
+    }
+  }
+}

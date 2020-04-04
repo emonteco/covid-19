@@ -1,5 +1,5 @@
 # COVID-19
-Statistics by country.
+Statistics by country. Number of confirmed, recovered and deaths.
 
 [Demo](https://emonteco.github.io/covid-19/) 
 
@@ -7,4 +7,5 @@ Statistics by country.
 - React
 - Redux
 - Redux-Saga
+- Sass
 - Bootstrap

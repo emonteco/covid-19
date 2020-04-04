@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { VectorMap } from '@south-paw/react-vector-maps';
 
 import world from '../../maps/world.json';
-import './WorldMap.css';
+import './WorldMap.scss';
 
 const WorldMap = ({ onClick, selected }) => {
   const currentLayers = [selected && selected.toLowerCase()];

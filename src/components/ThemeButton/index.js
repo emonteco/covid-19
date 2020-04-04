@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './ThemeButton.css';
+import './ThemeButton.scss';
 import { ReactComponent as DayIcon } from '../../assets/icons/day.svg';
 import { ReactComponent as NightIcon } from '../../assets/icons/night.svg';
 
